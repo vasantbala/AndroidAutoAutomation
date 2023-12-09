@@ -29,9 +29,10 @@ namespace SandboxApp
 
             var connectionProfiles = Connectivity.Current.ConnectionProfiles;
 
-            if (connectionProfiles.Contains(ConnectionProfile.WiFi))
+            if (accessType == NetworkAccess.Internet 
+                && connectionProfiles.Contains(ConnectionProfile.WiFi))
             {
-                WifiLbl.Text = $"Wifi Status: {wifiManagerService.GetActiveSSID()}";
+                WifiLbl.Text = $"Wifi Status: Connected to {wifiManagerService.GetActiveSSID()}";
             }
             else 
             {
